@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Freddy Velazquez — Cirujano Pediátrico | Ciudad del Este</title>
+<meta name="description" content="Dr. Freddy Velazquez, cirujano pediátrico especializado en cirugía mínimamente invasiva. CirurKids, Sanatorio LeBlanc, Ciudad del Este, Paraguay.">
+<meta name="theme-color" content="#0A1220">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Physician","name":"Dr. Freddy Velazquez","medicalSpecialty":"Pediatric Surgery","description":"Cirujano pediátrico especializado en cirugía mínimamente invasiva","address":{"@type":"PostalAddress","addressLocality":"Ciudad del Este","addressCountry":"PY"},"telephone":"+595992792724","worksFor":{"@type":"MedicalClinic","name":"CirurKids — Sanatorio LeBlanc"}}
+</script>
+<style>
+:root{
+  --bg:#0A1220; --navy:#0F1E38; --navy-2:#16294A;
+  --paper:#F6F7F9; --paper-2:#ECEEF3; --ink:#0E1A2B; --ink-2:#5C6C82;
+  --copper:#E0701F; --copper-2:#F59A52;
+  --line-d:rgba(255,255,255,.12); --line-l:rgba(14,26,43,.10);
+  --ease:cubic-bezier(.16,.84,.24,1);
+  --pad:clamp(80px,12vw,160px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'cv11','ss03'}
+button,a,input{font:inherit;color:inherit}
+a{text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--copper);color:#fff}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+
+/* type */
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.04}
+h1{font-size:clamp(46px,8vw,116px)}
+h2{font-size:clamp(34px,5.2vw,72px)}
+h3{font-size:19px;letter-spacing:-.015em;line-height:1.3}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--copper)}
+.eyebrow::before{content:'';width:22px;height:1px;background:currentColor}
+.muted{color:rgba(255,255,255,.62)}
+.light{background:var(--paper);color:var(--ink)}
+.light .muted{color:var(--ink-2)}
+p{font-size:clamp(16px,1.25vw,18px);font-weight:300}
+
+/* split text */
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.w>span{display:inline-block;will-change:transform}
+.js .split{visibility:hidden}
+.js .split.ready{visibility:visible}
+
+/* progress */
+#progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--copper);transform-origin:0 50%;transform:scaleX(0);z-index:100}
+
+/* header */
+header{position:fixed;top:16px;left:0;right:0;z-index:90;display:flex;justify-content:center;padding:0 16px;transition:transform .6s var(--ease)}
+header.hide{transform:translateY(-140%)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:28px;width:min(1040px,100%);padding:10px 12px 10px 22px;border-radius:999px;background:rgba(10,18,32,.82);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--line-d)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:500;font-size:15px;letter-spacing:-.01em}
+.brand img{height:20px;width:auto}
+.brand small{display:block;font-size:10.5px;font-weight:400;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;line-height:1.1;margin-top:2px}
+.links{display:flex;align-items:center;gap:30px;font-size:14px}
+.links a.l{color:rgba(255,255,255,.7);position:relative;transition:color .3s}
+.links a.l::after{content:'';position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--copper);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.links a.l:hover,.links a.l.on{color:#fff}
+.links a.l:hover::after,.links a.l.on::after{transform:scaleX(1);transform-origin:left}
+.menu{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-d);background:transparent;cursor:pointer;position:relative}
+.menu i{position:absolute;left:13px;right:13px;height:1.5px;background:#fff;transition:.4s var(--ease)}
+.menu i:nth-child(1){top:17px}.menu i:nth-child(2){top:24px}
+.menu.open i:nth-child(1){top:20px;transform:rotate(45deg)}
+.menu.open i:nth-child(2){top:20px;transform:rotate(-45deg)}
+
+/* buttons */
+.btn{--bx:0px;--by:0px;position:relative;display:inline-flex;align-items:center;gap:12px;padding:14px 14px 14px 26px;border-radius:999px;font-size:15px;font-weight:500;letter-spacing:-.01em;cursor:pointer;border:1px solid transparent;transition:transform .5s var(--ease),background .4s,color .4s,border-color .4s;transform:translate(var(--bx),var(--by));overflow:hidden;isolation:isolate}
+.btn .ar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;transition:transform .5s var(--ease),background .4s}
+.btn .ar svg{width:14px;height:14px;transition:transform .5s var(--ease)}
+.btn:hover .ar svg{transform:rotate(45deg)}
+.btn.sm{padding:9px 9px 9px 18px;font-size:14px}
+.btn.sm .ar{width:26px;height:26px}
+.btn-p{background:var(--copper);color:#fff}
+.btn-p .ar{background:#fff;color:var(--copper)}
+.btn-p::before{content:'';position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .55s var(--ease);z-index:-1;border-radius:inherit}
+.btn-p:hover{color:var(--ink)}
+.btn-p:hover::before{transform:translateY(0)}
+.btn-p:hover .ar{background:var(--copper);color:#fff}
+.btn-g{border-color:var(--line-d);color:#fff;padding-right:26px}
+.btn-g:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+.btn-line{border-color:rgba(255,255,255,.28);color:#fff;padding:9px 9px 9px 20px;font-size:14px}
+.btn-line .ar{background:rgba(255,255,255,.14);width:26px;height:26px}
+.btn-line:hover{background:#fff;color:var(--ink)}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--bg);isolation:isolate}
+.hero-glow{position:absolute;inset:-20%;z-index:-2;background:
+  radial-gradient(40% 45% at 72% 38%,rgba(34,58,99,.75),transparent 70%),
+  radial-gradient(30% 30% at 20% 90%,rgba(224,112,31,.16),transparent 70%)}
+.hero-grid{position:absolute;inset:0;z-index:-2;opacity:.5;background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:88px 88px;mask-image:radial-gradient(60% 70% at 70% 40%,#000,transparent);-webkit-mask-image:radial-gradient(60% 70% at 70% 40%,#000,transparent)}
+.hero-photo{position:absolute;right:max(0px,calc(50% - 760px));bottom:0;height:min(94svh,980px);aspect-ratio:916/1280;z-index:-1;will-change:transform}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 70%,transparent 100%),linear-gradient(to right,transparent 0,#000 30%,#000 80%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 70%,transparent 100%),linear-gradient(to right,transparent 0,#000 30%,#000 80%,transparent 100%)}
+.hero-inner{width:min(1200px,100% - 48px);margin-inline:auto;padding:150px 0 clamp(40px,7vh,80px);position:relative;z-index:2}
+.hero .eyebrow{margin-bottom:28px}
+.hero h1{max-width:9ch}
+.hero h1 em{font-style:normal;color:var(--copper)}
+.hero .lede{max-width:440px;margin:30px 0 40px;font-size:clamp(16px,1.4vw,19px);color:rgba(255,255,255,.7)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:11px 18px 11px 12px;border-radius:999px;font-size:13px;font-weight:500;background:rgba(15,30,56,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-d);white-space:nowrap}
+.chip i{width:26px;height:26px;border-radius:50%;background:rgba(224,112,31,.18);display:grid;place-items:center;color:var(--copper-2)}
+.chip svg{width:13px;height:13px}
+.chip.c1{right:calc(50% - 150px);top:26%}
+.chip.c2{right:max(24px,calc(50% - 640px));top:50%}
+.chip.c3{right:8%;bottom:12%}
+.scroll-cue{position:absolute;right:24px;bottom:34px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.2em;color:rgba(255,255,255,.5);writing-mode:vertical-rl}
+.scroll-cue b{display:block;width:1px;height:56px;background:var(--line-d);position:relative;overflow:hidden}
+.scroll-cue b::after{content:'';position:absolute;left:0;top:-50%;width:100%;height:50%;background:var(--copper);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
+
+/* marquee */
+.band{background:var(--copper);color:#fff;overflow:hidden;padding:18px 0;border-block:1px solid rgba(0,0,0,.08)}
+.track{display:flex;gap:56px;width:max-content;animation:marq 38s linear infinite;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.track span{display:flex;align-items:center;gap:56px;white-space:nowrap}
+.track span::after{content:'';width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.7)}
+.band:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.pad{padding:var(--pad) 0}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,8vw,120px);align-items:center}
+.about-img{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--navy);clip-path:inset(0 0 0 0 round 28px)}
+.about-img img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:center 40%;will-change:transform}
+.about-img .tag{position:absolute;left:16px;bottom:16px;padding:9px 16px;border-radius:999px;background:rgba(10,18,32,.6);backdrop-filter:blur(12px);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.about h2{margin:22px 0 34px}
+.about p+p{margin-top:18px}
+.quote{margin-top:40px;padding-left:22px;border-left:2px solid var(--copper);font-size:clamp(18px,1.8vw,24px);font-weight:400;letter-spacing:-.02em;line-height:1.35;color:var(--ink)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-l);margin-top:clamp(60px,8vw,110px)}
+.stat{padding:30px 24px 0 0}
+.stat+.stat{padding-left:24px;border-left:1px solid var(--line-l)}
+.stat .n{white-space:nowrap;font-size:clamp(28px,3.1vw,46px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.stat .n sup{font-size:.45em;color:var(--copper);margin-left:2px;vertical-align:top;position:relative;top:.2em}
+.stat .t{margin-top:12px;font-size:14px;line-height:1.5;color:var(--ink-2);font-weight:400}
+
+/* ESPECIALIDAD */
+.dark{background:var(--bg)}
+.esp-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,6vw,80px)}
+.esp-head h2{margin-top:22px}
+.esp-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.esp-media{position:relative;border-radius:28px;overflow:hidden;min-height:560px;grid-row:span 3}
+.esp-media img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:center 40%;will-change:transform}
+.esp-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,32,.75),transparent 45%)}
+.esp-media figcaption{position:absolute;left:24px;bottom:24px;right:24px;z-index:2;font-size:14px;color:rgba(255,255,255,.85)}
+.card{--mx:50%;--my:50%;position:relative;padding:32px;border-radius:24px;background:var(--navy);border:1px solid var(--line-d);overflow:hidden;transition:border-color .4s,transform .6s var(--ease)}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx) var(--my),rgba(224,112,31,.16),transparent 60%);opacity:0;transition:opacity .4s}
+.card:hover{border-color:rgba(224,112,31,.4)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card .num{font-size:13px;font-weight:500;color:var(--copper);letter-spacing:.08em;margin-bottom:34px;display:flex;justify-content:space-between;align-items:center}
+.card .num i{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d);display:grid;place-items:center;transition:.4s var(--ease)}
+.card .num svg{width:15px;height:15px}
+.card:hover .num i{background:var(--copper);border-color:var(--copper);color:#fff;transform:rotate(-45deg)}
+.card h3{font-size:clamp(20px,2vw,26px);margin-bottom:12px}
+.card p{font-size:15.5px;color:rgba(255,255,255,.62)}
+
+/* TRAYECTORIA / PASO A PASO */
+.traj{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,8vw,120px)}
+.traj-side{position:sticky;top:120px;align-self:start}
+.traj-side h2{margin:22px 0 26px}
+.traj-side p{margin-bottom:34px;max-width:380px}
+.steps{position:relative;padding-left:76px}
+.steps::before{content:'';position:absolute;left:23px;top:24px;bottom:24px;width:1px;background:var(--line-l)}
+.steps .fill{position:absolute;left:23px;top:24px;bottom:24px;width:1px;background:var(--copper);transform-origin:top;transform:scaleY(0)}
+.step{position:relative;padding:0 0 clamp(50px,7vw,90px);opacity:.35;transition:opacity .6s var(--ease)}
+.step:last-child{padding-bottom:0}
+.step.on{opacity:1}
+.step .dot{position:absolute;left:-76px;top:0;width:48px;height:48px;border-radius:50%;background:var(--paper);border:1px solid var(--line-l);display:grid;place-items:center;font-size:13px;font-weight:600;transition:.5s var(--ease)}
+.step.on .dot{background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.08)}
+.step h3{font-size:clamp(22px,2.6vw,32px);margin:4px 0 12px;letter-spacing:-.03em}
+.step p{color:var(--ink-2);max-width:520px}
+.step .pill{display:inline-block;margin-top:16px;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;background:var(--paper-2);color:var(--ink-2)}
+
+/* ALEM */
+.alem{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.alem h2{margin:22px 0 30px}
+.badge{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;border:1px solid var(--line-d);background:rgba(255,255,255,.04);font-size:12.5px;font-weight:500;letter-spacing:.1em;margin-bottom:28px}
+.badge i{width:30px;height:30px;border-radius:50%;background:var(--copper);display:grid;place-items:center}
+.badge svg{width:15px;height:15px}
+.alem p{color:rgba(255,255,255,.66)}
+.photos{display:grid;grid-template-columns:.8fr 1fr;gap:16px;align-items:end}
+.ph{position:relative;border-radius:24px;overflow:hidden;background:var(--navy)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ph:hover img{transform:scale(1.05)}
+.ph.a{aspect-ratio:3/5;margin-bottom:60px}
+.ph.b{aspect-ratio:9/10}
+.ph span{position:absolute;left:14px;bottom:14px;padding:7px 14px;border-radius:999px;background:rgba(10,18,32,.6);backdrop-filter:blur(10px);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.big-word{font-size:clamp(70px,17vw,260px);font-weight:600;letter-spacing:-.06em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);white-space:nowrap;margin-top:clamp(60px,9vw,120px);will-change:transform;user-select:none}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,8vw,120px)}
+.faq h2{margin:22px 0 26px}
+.faq-list{border-top:1px solid var(--line-l)}
+.fq{border-bottom:1px solid var(--line-l)}
+.fq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;background:none;border:0;cursor:pointer;text-align:left;font-size:clamp(18px,1.8vw,23px);font-weight:500;letter-spacing:-.025em;color:var(--ink)}
+.fq .pl{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-l);position:relative;transition:.5s var(--ease)}
+.fq .pl::before,.fq .pl::after{content:'';position:absolute;left:50%;top:50%;width:13px;height:1.5px;background:currentColor;transform:translate(-50%,-50%);transition:.5s var(--ease)}
+.fq .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.fq.open .pl{background:var(--copper);border-color:var(--copper);color:#fff;transform:rotate(180deg)}
+.fq.open .pl::after{transform:translate(-50%,-50%) rotate(0)}
+.fq .a{height:0;overflow:hidden;transition:height .6s var(--ease)}
+.fq .a p{padding:0 64px 30px 0;color:var(--ink-2)}
+.fq button:hover .pl{border-color:var(--ink)}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;isolation:isolate}
+.cta::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 80% 100%,rgba(224,112,31,.22),transparent 70%),radial-gradient(40% 50% at 10% 0%,rgba(34,58,99,.7),transparent 70%)}
+.cta-top{text-align:center;max-width:900px;margin:0 auto}
+.cta-top h2{font-size:clamp(40px,7vw,104px);margin:24px 0 26px}
+.cta-top p{max-width:520px;margin:0 auto 40px;color:rgba(255,255,255,.65)}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(60px,8vw,110px)}
+.ct{padding:28px;border-radius:22px;border:1px solid var(--line-d);background:rgba(255,255,255,.03);transition:.5s var(--ease)}
+.ct:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.ct small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;font-weight:500}
+.ct .v{font-size:clamp(17px,1.6vw,21px);font-weight:500;letter-spacing:-.02em;line-height:1.35}
+
+footer{border-top:1px solid var(--line-d);padding:34px 0;font-size:13.5px;color:rgba(255,255,255,.5)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .fb{display:flex;align-items:center;gap:14px;color:#fff;font-weight:500}
+.foot .fb img{height:18px}
+.foot a{color:rgba(255,255,255,.7);border-bottom:1px solid var(--line-d);transition:.3s}
+.foot a:hover{color:var(--copper);border-color:var(--copper)}
+
+/* WhatsApp float */
+.wa{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .5s var(--ease),opacity .5s;opacity:0;transform:scale(.6);pointer-events:none}
+.wa.show{opacity:1;transform:scale(1);pointer-events:auto}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+.wa::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:ping 2.4s ease-out infinite}
+@keyframes ping{to{transform:scale(1.6);opacity:0}}
+
+/* reveal fallback (no JS) */
+.js [data-r]{opacity:0;transform:translateY(34px)}
+
+/* mobile menu */
+@media(max-width:900px){
+  .links{position:fixed;inset:0;background:rgba(10,18,32,.96);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;gap:26px;font-size:28px;font-weight:500;letter-spacing:-.03em;opacity:0;pointer-events:none;transition:opacity .5s var(--ease);z-index:-1}
+  .links.open{opacity:1;pointer-events:auto}
+  .menu{display:block;z-index:2}
+  .links .btn{font-size:16px}
+  .hero{align-items:flex-end}
+  .hero-photo{right:-20%;height:76svh;opacity:.6}
+  .hero-inner{padding-top:120px}
+  .hero h1{max-width:none}
+  .chip,.scroll-cue{display:none}
+  .about,.traj,.faq,.alem,.esp-head{grid-template-columns:1fr}
+  .esp-grid{grid-template-columns:1fr}
+  .esp-media{min-height:420px;grid-row:auto}
+  .traj-side{position:static}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .stat{padding-bottom:28px}
+  .contact{grid-template-columns:1fr}
+  .about-img{aspect-ratio:1/1}
+  .fq .a p{padding-right:0}
+}
+@media(max-width:520px){
+  .photos{grid-template-columns:1fr 1fr;gap:10px}
+  .ph.a{margin-bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .js [data-r],.js .split{opacity:1!important;transform:none!important;visibility:visible!important}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<div id="progress"></div>
+
+<header id="hd">
+  <div class="nav">
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="FV"><span>Freddy Velazquez<small>Cirugía Pediátrica</small></span></a>
+    <nav class="links" id="links">
+      <a class="l" href="#sobre">Sobre</a>
+      <a class="l" href="#especialidad">Especialidad</a>
+      <a class="l" href="#trayectoria">Trayectoria</a>
+      <a class="l" href="#mas-alla">Más allá</a>
+      <a class="l" href="#faq">FAQ</a>
+      <a class="btn btn-line" href="https://wa.me/595992792724?text=Hola%2C%20Dr.%20Freddy.%20Quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener">Agendar consulta <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></span></a>
+    </nav>
+    <button class="menu" id="menu" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div><div class="hero-grid"></div>
+  <div class="hero-photo" id="heroPhoto"><img src="assets/retrato.webp" alt="Dr. Freddy Velazquez, cirujano pediátrico" fetchpriority="high"></div>
+
+  <div class="chip c1" data-float="14"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="2.2"/><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2"/></svg></i>Cirugía mínimamente invasiva</div>
+  <div class="chip c2" data-float="-18"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l3.5-6 3 4 2-3L14 12z"/></svg></i>4x Ironman 70.3 Finisher</div>
+  <div class="chip c3" data-float="12"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14s5-4 5-8a5 5 0 10-10 0c0 4 5 8 5 8z"/><circle cx="8" cy="6" r="1.6"/></svg></i>CirurKids · Sanatorio LeBlanc</div>
+
+  <div class="hero-inner">
+    <p class="eyebrow" data-hero>Cirugía pediátrica · Ciudad del Este</p>
+    <h1 class="split" id="h1">Freddy <em>Velazquez</em></h1>
+    <p class="lede" data-hero>Cirujano pediátrico dedicado a la cirugía mínimamente invasiva: cuidando a los pacientes más chiquitos con la mayor precisión posible.</p>
+    <div class="hero-ctas" data-hero>
+      <a class="btn btn-p" data-mag href="https://wa.me/595992792724?text=Hola%2C%20Dr.%20Freddy.%20Quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener">Agendar consulta <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></span></a>
+      <a class="btn btn-g" href="#sobre">Conocer la trayectoria</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>BAJÁ</span><b></b></div>
+</section>
+
+<div class="band" aria-hidden="true"><div class="track" id="track">
+  <span>Cirugía mínimamente invasiva</span><span>Recién nacidos y bebés</span><span>University of Cape Town</span><span>CirurKids</span><span>4x Ironman 70.3</span><span>Sanatorio LeBlanc</span>
+  <span>Cirugía mínimamente invasiva</span><span>Recién nacidos y bebés</span><span>University of Cape Town</span><span>CirurKids</span><span>4x Ironman 70.3</span><span>Sanatorio LeBlanc</span>
+</div></div>
+
+<!-- SOBRE -->
+<section id="sobre" class="pad light">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-img" id="aboutImg">
+        <img src="assets/cirugia.webp" alt="Dr. Freddy Velazquez operando en CirurKids" loading="lazy">
+        <span class="tag">Freddy Velazquez</span>
+      </div>
+      <div>
+        <span class="eyebrow" data-r>Sobre</span>
+        <h2 class="split">El camino más corto hasta la cura.</h2>
+        <p data-r>El Dr. Freddy Velazquez es cirujano pediátrico en Ciudad del Este, dedicado por completo a operar a quienes todavía no saben explicar dónde les duele. Su forma de trabajar se basa en algo fácil de decir y difícil de hacer: cuanto más chica la incisión, menos trauma, y más rápido es el regreso a casa.</p>
+        <p data-r>Esa búsqueda lo convirtió en uno de los pocos profesionales habilitados en Paraguay para hacer determinados procedimientos mínimamente invasivos en recién nacidos y bebés, una franja de edad donde el margen de error es mínimo y la técnica tiene que ser exacta.</p>
+        <blockquote class="quote" data-r>"En cirugía pediátrica, la delicadeza no es un detalle: es la técnica."</blockquote>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat" data-r><div class="n">Neonatos</div><div class="t">Procedimientos mínimamente invasivos en recién nacidos y bebés</div></div>
+      <div class="stat" data-r><div class="n">Cape Town</div><div class="t">Posgrado en la University of Cape Town, Sudáfrica</div></div>
+      <div class="stat" data-r><div class="n"><span data-count="4">4</span><sup>x</sup></div><div class="t">Ironman 70.3 Finisher</div></div>
+      <div class="stat" data-r><div class="n">CirurKids</div><div class="t">Atiende en Sanatorio LeBlanc, Ciudad del Este</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDAD -->
+<section id="especialidad" class="pad dark">
+  <div class="wrap">
+    <div class="esp-head">
+      <div><span class="eyebrow" data-r>Especialidad</span><h2 class="split">Cirugía mínimamente invasiva en bebés.</h2></div>
+      <p class="muted" data-r style="max-width:420px;justify-self:end">Cámara y microinstrumentos en lugar del bisturí tradicional, pensados para un cuerpo que todavía está en formación.</p>
+    </div>
+    <div class="esp-grid">
+      <figure class="esp-media" id="espMedia" data-r><img src="assets/cirugia.webp" alt="Cirugía pediátrica en quirófano" loading="lazy"><figcaption>CirurKids · Sanatorio LeBlanc</figcaption></figure>
+      <article class="card" data-r><div class="num">01<i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></i></div><h3>Cirugía pediátrica mínimamente invasiva</h3><p>Video y microinstrumentos en lugar del bisturí tradicional. Incisiones milimétricas, con menos dolor, menos cicatriz y una recuperación más rápida.</p></article>
+      <article class="card" data-r><div class="num">02<i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></i></div><h3>Procedimientos poco comunes en Paraguay</h3><p>Determinadas técnicas mínimamente invasivas en recién nacidos y bebés las hace muy poca gente en el país. El Dr. Freddy es uno de ellos.</p></article>
+      <article class="card" data-r><div class="num">03<i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></i></div><h3>CirurKids · Sanatorio LeBlanc</h3><p>Una estructura pensada para el paciente pediátrico de principio a fin, desde la primera consulta hasta el control post operatorio.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section id="trayectoria" class="pad light">
+  <div class="wrap traj">
+    <div class="traj-side">
+      <span class="eyebrow" data-r>Trayectoria</span>
+      <h2 class="split">Una formación que cruzó fronteras.</h2>
+      <p class="muted" data-r>Del consultorio al quirófano, con un solo foco: el paciente pediátrico.</p>
+      <a class="btn btn-p" data-r data-mag href="https://wa.me/595992792724?text=Hola%2C%20Dr.%20Freddy.%20Quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener">Agendar consulta <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></span></a>
+    </div>
+    <div class="steps" id="steps">
+      <div class="fill" id="fill"></div>
+      <div class="step"><span class="dot">I</span><h3>Formación en Cirugía Pediátrica</h3><p>El comienzo de una carrera armada con un solo foco: el paciente pediátrico, desde la consulta hasta el quirófano.</p></div>
+      <div class="step"><span class="dot">II</span><h3>Especialización internacional en Ciudad del Cabo</h3><p>Parte de su especialización en cirugía pediátrica mínimamente invasiva la hizo en el Red Cross War Memorial Children's Hospital, de la University of Cape Town, en Sudáfrica, una de las referencias mundiales en cirugía pediátrica. Volvió con un nivel técnico que muy pocos cirujanos de la región tienen.</p><span class="pill">Sudáfrica</span></div>
+      <div class="step"><span class="dot">III</span><h3>CirurKids, Ciudad del Este</h3><p>Hoy, todo ese conocimiento está al servicio de las familias paraguayas, en CirurKids, dentro del Sanatorio LeBlanc: trayendo a Ciudad del Este una cirugía pediátrica que, en muchos casos, antes solo se conseguía fuera del país.</p><span class="pill">Sanatorio LeBlanc</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALEM -->
+<section id="mas-alla" class="pad dark" style="overflow:hidden">
+  <div class="wrap">
+    <div class="alem">
+      <div>
+        <span class="eyebrow" data-r>Más allá de la medicina</span>
+        <h2 class="split">La misma disciplina, fuera del quirófano.</h2>
+        <div class="badge" data-r><i><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l3.5-6 3 4 2-3L14 12z"/></svg></i>4X IRONMAN 70.3 · FINISHER</div>
+        <p data-r>Una cirugía larga exige tener el cuerpo y la cabeza en el lugar correcto durante horas seguidas. Es lo mismo que pide el triatlón. Fuera de CirurKids, el Dr. Freddy entrena y compite como triatleta, y trata la resistencia, el ritmo y la calma bajo esfuerzo como una extensión de la misma disciplina que lleva al quirófano.</p>
+      </div>
+      <div class="photos">
+        <div class="ph a" data-r><img src="assets/natacion.webp" alt="Dr. Freddy Velazquez en la etapa de natación del Ironman 70.3" loading="lazy" style="object-position:center 12%"><span>Natación</span></div>
+        <div class="ph b" data-r><img src="assets/ciclismo.webp" alt="Dr. Freddy Velazquez en la etapa de ciclismo del Ironman 70.3" loading="lazy"><span>Ciclismo</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="big-word" id="bigWord" aria-hidden="true">Disciplina · Precisión · Calma</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="pad light">
+  <div class="wrap faq">
+    <div>
+      <span class="eyebrow" data-r>Preguntas frecuentes</span>
+      <h2 class="split">Lo que las familias preguntan antes.</h2>
+      <p class="muted" data-r style="max-width:360px">Si tenés alguna otra duda, escribinos directamente por WhatsApp: respondemos nosotros mismos.</p>
+    </div>
+    <div class="faq-list" data-r>
+      <div class="fq open"><button aria-expanded="true">¿Qué es la cirugía mínimamente invasiva?<span class="pl"></span></button><div class="a"><p>Es una técnica que usa cámara y microinstrumentos en lugar de cortes grandes. En vez de abrir, se opera a través de incisiones milimétricas, lo que significa menos dolor, menos cicatriz y una recuperación bastante más rápida para el bebé o niño.</p></div></div>
+      <div class="fq"><button aria-expanded="false">¿A partir de qué edad atiende?<span class="pl"></span></button><div class="a"><p>El Dr. Freddy atiende desde recién nacidos y bebés hasta niños y adolescentes. Es justamente en los pacientes más chiquitos, donde el margen de error es menor, que su formación mínimamente invasiva hace más diferencia.</p></div></div>
+      <div class="fq"><button aria-expanded="false">¿Cómo programo una consulta?<span class="pl"></span></button><div class="a"><p>Lo más rápido es escribir por WhatsApp. Ahí te vamos guiando sobre los documentos y estudios que conviene traer a la primera consulta en CirurKids, dentro del Sanatorio LeBlanc.</p></div></div>
+      <div class="fq"><button aria-expanded="false">¿Atiende casos de urgencia?<span class="pl"></span></button><div class="a"><p>Sí. Ante una urgencia quirúrgica pediátrica, el contacto más directo también es el WhatsApp: de ahí se define el paso a seguir según el caso.</p></div></div>
+      <div class="fq"><button aria-expanded="false">¿Trabaja con seguros médicos?<span class="pl"></span></button><div class="a"><p>Depende del seguro y del procedimiento. Lo mejor es consultarlo directamente al momento de agendar, así te confirmamos la cobertura con tu plan antes de la consulta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="pad dark cta">
+  <div class="wrap">
+    <div class="cta-top">
+      <span class="eyebrow" data-r>Contacto</span>
+      <h2 class="split">Hablemos sobre el cuidado de tu hijo.</h2>
+      <p data-r>Atención en Ciudad del Este, en CirurKids, dentro del Sanatorio LeBlanc. Escribinos para agendar una consulta.</p>
+      <a class="btn btn-p" data-r data-mag href="https://wa.me/595992792724?text=Hola%2C%20Dr.%20Freddy.%20Quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener">Hablar por WhatsApp <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></span></a>
+    </div>
+    <div class="contact">
+      <a class="ct" data-r href="https://wa.me/595992792724" target="_blank" rel="noopener"><small>WhatsApp</small><div class="v">+595 992 792724</div></a>
+      <div class="ct" data-r><small>Clínica</small><div class="v">CirurKids, Sanatorio LeBlanc</div></div>
+      <div class="ct" data-r><small>Ciudad</small><div class="v">Ciudad del Este, Paraguay</div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="fb"><img src="assets/logo.png" alt="FV"><span>Freddy Velazquez · Cirujano Pediátrico</span></div>
+    <div>© <span id="yr"></span> Todos los derechos reservados · Sitio desarrollado por <a href="https://www.instagram.com/tapegrowth" target="_blank" rel="noopener">@tapegrowth</a></div>
+  </div>
+</footer>
+
+<a class="wa" id="wa" href="https://wa.me/595992792724?text=Hola%2C%20Dr.%20Freddy.%20Quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.200zm4.5-6.1c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 01-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.300 3 3 0 00-.9 2.200 5.200 5.200 0 001.100 2.800 11.900 11.900 0 004.600 4c1.700.7 2.400.8 3.300.7.500-.1 1.600-.7 1.900-1.300.2-.6.200-1.200.2-1.300-.1-.2-.3-.2-.5-.3z"/></svg></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,c){return (c||document).querySelector(s)}, $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* split headings into masked words */
+  $$('.split').forEach(function(el){
+    var nodes = Array.prototype.slice.call(el.childNodes), out = '';
+    nodes.forEach(function(n){
+      var em = n.nodeType === 1 && n.tagName === 'EM';
+      var txt = n.textContent;
+      txt.split(/(\s+)/).forEach(function(t){
+        if(!t) return;
+        if(/^\s+$/.test(t)){ out += ' '; return; }
+        var w = '<span class="w"><span>'+t+'</span></span>';
+        out += em ? '<em>'+w+'</em>' : w;
+      });
+    });
+    el.innerHTML = out; el.classList.add('ready');
+  });
+
+  /* mobile menu */
+  var menu = $('#menu'), links = $('#links');
+  menu.addEventListener('click', function(){
+    var o = links.classList.toggle('open'); menu.classList.toggle('open', o); menu.setAttribute('aria-expanded', o);
+  });
+  $$('.links a').forEach(function(a){ a.addEventListener('click', function(){ links.classList.remove('open'); menu.classList.remove('open'); }); });
+
+  /* FAQ */
+  function setH(f, open){ var a = $('.a', f); a.style.height = open ? a.scrollHeight + 'px' : '0px'; f.classList.toggle('open', open); $('button', f).setAttribute('aria-expanded', open); }
+  $$('.fq').forEach(function(f){
+    setH(f, f.classList.contains('open'));
+    $('button', f).addEventListener('click', function(){
+      var was = f.classList.contains('open');
+      $$('.fq').forEach(function(x){ setH(x, false); });
+      setH(f, !was);
+      setTimeout(function(){ window.ScrollTrigger && ScrollTrigger.refresh(); }, 650);
+    });
+  });
+  addEventListener('resize', function(){ $$('.fq.open').forEach(function(f){ setH(f, true); }); });
+
+  if(RM || !window.gsap || !window.ScrollTrigger){
+    $$('.split').forEach(function(e){e.style.visibility='visible'});
+    document.documentElement.classList.remove('js');
+    $$('.fq').forEach(function(f){ f.querySelector('button').addEventListener('click', function(){}); });
+    $$('.step').forEach(function(s){ s.classList.add('on'); });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll */
+  var lenis = null;
+  if(window.Lenis){
+    lenis = new Lenis({ duration: 1.15, easing: function(t){return Math.min(1, 1.001 - Math.pow(2, -10*t))} });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000) });
+    gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href'); if(id.length < 2) return;
+        var t = $(id); if(!t) return; e.preventDefault(); lenis.scrollTo(t, { offset: id === '#top' ? 0 : -20 });
+      });
+    });
+  }
+
+  /* intro sequence */
+  var tl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: .15 });
+  tl.from('.nav', { y: -30, opacity: 0, duration: 1 }, 0)
+    .from('#h1 .w > span', { yPercent: 115, rotate: 4, duration: 1.5, stagger: .1 }, .1)
+    .from('[data-hero]', { y: 30, opacity: 0, duration: 1.1, stagger: .12 }, .35)
+    .from('#heroPhoto', { opacity: 0, scale: 1.06, x: 40, duration: 1.8 }, 0)
+    .from('.chip', { opacity: 0, y: 24, scale: .9, duration: 1.1, stagger: .15 }, .9)
+    .from('.band', { opacity: 0, duration: 1 }, 1);
+
+  /* floating chips + hero parallax */
+  $$('[data-float]').forEach(function(c){
+    gsap.to(c, { y: parseFloat(c.dataset.float), duration: 3 + Math.random()*1.5, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+  });
+  gsap.to('#heroPhoto', { yPercent: 9, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('.hero-inner', { yPercent: -10, opacity: .2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* marquee reacts to scroll velocity */
+  var track = $('#track');
+  ScrollTrigger.create({ onUpdate: function(self){
+    var v = Math.min(Math.abs(self.getVelocity()) / 800, 4);
+    gsap.to(track, { timeScale: 1, duration: 0 });
+    track.style.animationDuration = (38 / (1 + v)) + 's';
+  }});
+
+  /* headings */
+  $$('.split').forEach(function(el){
+    if(el.id === 'h1') return;
+    gsap.from($$('.w > span', el), { yPercent: 115, rotate: 3, duration: 1.2, ease: 'expo.out', stagger: .06,
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+
+  /* generic reveals */
+  $$('[data-r]').forEach(function(el, i){
+    gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+  });
+
+  /* image parallax + clip reveal */
+  gsap.from('#aboutImg', { clipPath: 'inset(12% 12% 12% 12% round 28px)', duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '#aboutImg', start: 'top 85%', once: true } });
+  gsap.to('#aboutImg img', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '#aboutImg', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('#espMedia img', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '#espMedia', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* count up */
+  $$('[data-count]').forEach(function(el){
+    var end = +el.dataset.count, o = { v: 0 };
+    gsap.to(o, { v: end, duration: 1.8, ease: 'power2.out', snap: { v: 1 }, onUpdate: function(){ el.textContent = o.v; },
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+  });
+
+  /* timeline progress */
+  var steps = $$('.step');
+  gsap.to('#fill', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#steps', start: 'top 60%', end: 'bottom 60%', scrub: true } });
+  steps.forEach(function(s){
+    ScrollTrigger.create({ trigger: s, start: 'top 65%', end: 'bottom 35%', onToggle: function(self){ s.classList.toggle('on', self.isActive); },
+      onEnterBack: function(){ s.classList.add('on'); } });
+  });
+  steps.forEach(function(s,i){ if(i === 0) s.classList.add('on'); });
+
+  /* outline word drifts horizontally */
+  gsap.fromTo('#bigWord', { x: '8%' }, { x: '-45%', ease: 'none', scrollTrigger: { trigger: '#bigWord', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.from('.ph.a img', { scale: 1.25, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.photos', start: 'top 80%', once: true } });
+  gsap.from('.ph.b img', { scale: 1.25, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.photos', start: 'top 80%', once: true } });
+
+  /* card spotlight */
+  $$('.card').forEach(function(c){
+    c.addEventListener('pointermove', function(e){ var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  });
+
+  /* magnetic buttons (fine pointers only) */
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    $$('[data-mag]').forEach(function(b){
+      var qx = gsap.quickTo(b, '--bx', { duration: .6, ease: 'power3', unit: 'px' }), qy = gsap.quickTo(b, '--by', { duration: .6, ease: 'power3', unit: 'px' });
+      b.addEventListener('pointermove', function(e){ var r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width/2) * .25); qy((e.clientY - r.top - r.height/2) * .35); });
+      b.addEventListener('pointerleave', function(){ qx(0); qy(0); });
+    });
+  }
+
+  /* header hide/show, progress, WhatsApp float, active link */
+  var hd = $('#hd'), prog = $('#progress'), wa = $('#wa'), last = 0;
+  function onScroll(y){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    hd.classList.toggle('hide', y > last && y > 240 && !links.classList.contains('open'));
+    last = y;
+    wa.classList.toggle('show', y > innerHeight * .8);
+  }
+  if(lenis) lenis.on('scroll', function(e){ onScroll(e.scroll); }); else addEventListener('scroll', function(){ onScroll(scrollY); }, { passive: true });
+  ['sobre','especialidad','trayectoria','mas-alla','faq'].forEach(function(id){
+    var a = $('.links a[href="#' + id + '"]');
+    ScrollTrigger.create({ trigger: '#' + id, start: 'top 50%', end: 'bottom 50%', onToggle: function(s){ a && a.classList.toggle('on', s.isActive); } });
+  });
+
+  addEventListener('load', function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
